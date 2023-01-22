@@ -17,7 +17,12 @@ To install the recommended Playwright, Pytest & pytest-playwright use the single
 ```pip install pytest-playwright```
 
 
-# Running the code
+# Running All The Tests
 1. Clone the repository
 2. Install the dependencies mentioned above
 3. Fire the command ```pytest -v test_playwright_locators.py ```
+
+# Running Individual Tests
+1. Clone the repository
+2. Install the dependencies mentioned above
+3. Fire the command ```pytest -v test_playwright_locators.py::<name_of_individual_test> ```
