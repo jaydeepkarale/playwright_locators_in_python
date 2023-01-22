@@ -14,6 +14,6 @@ Python installation remains standard and is out of scope
 
 To install the recommended Playwright, Pytest & pytest-playwright use the single command below
 
-```py pip install pytest-playwright```
+```pip install pytest-playwright```
 
 
