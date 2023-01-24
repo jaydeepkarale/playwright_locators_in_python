@@ -16,6 +16,10 @@ To install the recommended Playwright, Pytest & pytest-playwright use the single
 
 ```pip install pytest-playwright```
 
+# Username & Accesskey for running tests on LambdaTest cloud grid
+In order to run the tests on cloud grid you will need to create an account and obtain the username & access key from the [LambdaTest Profile Page](https://accounts.lambdatest.com/detail/profile)
+
+Once obtained this needs to be updated in the ```sample.env``` file
 
 # Running All The Tests
 1. Clone the repository
