@@ -11,6 +11,8 @@ pytest==7.2.1
 
 playwright==1.29.1
 
+python-dotenv==0.21.1
+
 pytest-playwright
 
 
