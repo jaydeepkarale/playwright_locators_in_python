@@ -1,4 +1,4 @@
-# Playwright Locators in Python
+# Playwright Locators In Python
 
 The purpose of this repository is to demonstrate Playwright Locators. Playwright is a browser automation & web testing framework which enables reliable end-to-end testing for modern web apps.
 
