@@ -9,15 +9,15 @@ import pytest
 from dotenv import load_dotenv
 from playwright.sync_api import expect, sync_playwright
 
-load_dotenv("sample.env")
+load_dotenv()
 
 capabilities = {
     'browserName': 'Chrome',  # Browsers allowed: `Chrome`, `MicrosoftEdge`, `pw-chromium`, `pw-firefox` and `pw-webkit`
     'browserVersion': 'latest',
     'LT:Options': {
-        'platform': 'Windows 10',
+        'platform': 'Windows 11',
         'build': 'Playwright Locators Demo Build',
-        'name': 'Playwright Locators Test For Windows 10 & Chrome',
+        'name': 'Playwright Locators Test For Windows 11 & Chrome',
         'user': os.getenv('LT_USERNAME'),
         'accessKey': os.getenv('LT_ACCESS_KEY'),
         'network': True,
@@ -34,12 +34,12 @@ capabilities = {
 @pytest.fixture(name="local_grid_page")
 def playwright_local_grid_page():
     with sync_playwright() as playwright:
-        browser = playwright.chromium.launch(headless=True)
+        browser = playwright.chromium.launch(headless=False)
         page = browser.new_page()
         yield page
 
 @pytest.fixture(name="cloud_grid_page")
-def playwright_local_grid_page():    
+def playwright_cloud_grid_page():    
     with sync_playwright() as playwright:
         playwrightVersion = str(subprocess.getoutput('playwright --version')).strip().split(" ")[1]
         capabilities['LT:Options']['playwrightClientVersion'] = playwrightVersion        
@@ -142,8 +142,6 @@ def test_locator_filter_by_text(cloud_grid_page):
 
 # replace cloud_grid_page with local_grid_page while running on local
 def test_locator_chaining(cloud_grid_page):    
-    cloud_grid_page.goto(
-        "https://www.lambdatest.com/selenium-playground/"
-    )
-    input_form_locator = cloud_grid_page.get_by_role("listitem").get_by_text(text=re.compile("input form submit", re.IGNORECASE))
-    expect(input_form_locator).to_have_attribute(name="href", value=re.compile("input-form-demo", re.IGNORECASE))    
+    cloud_grid_page.goto("https://ecommerce-playground.lambdatest.io/index.php?route=product/product&path=18&product_id=28")
+    breadcrumb_locator = cloud_grid_page.get_by_label("breadcrumb").get_by_text("HTC Touch HD")    
+    expect(breadcrumb_locator).to_be_visible()
