@@ -20,10 +20,10 @@ capabilities = {
         'name': 'Playwright Locators Test For Windows 11 & Chrome',
         'user': os.getenv('LT_USERNAME'),
         'accessKey': os.getenv('LT_ACCESS_KEY'),
-        'network': True,
+        'network': False,
         'video': True,
-        'visual': True,
-        'console': True,
+        'visual': False,
+        'console': False,
         'tunnel': False,   # Add tunnel configuration if testing locally hosted webpage
         'tunnelName': '',  # Optional
         'geoLocation': '', # country code can be fetched from https://www.lambdatest.com/capabilities-generator/
